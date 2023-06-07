@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { UserRoles } from '@/types/Roles'
-import userService from '@/store/services/user.service'
 import authService from '@/store/services/auth.service'
+import messages from '@/utils/messages'
 // import HomeView from '../views/HomeView.vue'
 
 const routes = [
@@ -317,6 +317,8 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
   }
 
+  let message;
+
   const publicPages = ['/login'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
@@ -340,10 +342,10 @@ router.beforeEach((to, from, next) => {
             }
           },
           (error) => {
-            this.message = (error.response && error.response.data && error.response.data.message) ||
+            message = (error.response && error.response.data && error.response.data.message) ||
                 error.message ||
                 error.toString();
-            this.$error(messages[this.message] || 'Что-то пошло не так');
+            this.$error(messages[message] || 'Что-то пошло не так');
           }
         )
       

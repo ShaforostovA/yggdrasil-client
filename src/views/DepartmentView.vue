@@ -179,6 +179,7 @@ export default {
         this.faculty = response.data.faculty;
         this.users = response.data.users;
         for(const item of this.users) {
+          if (item.roles[0].name === "ROLE_ADMIN" || item.roles[0].name === "ROLE_SUPER_ADMIN") continue
           this.usersContent.push([
             {
               'type': 'id',

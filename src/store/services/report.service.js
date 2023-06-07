@@ -11,7 +11,7 @@ class ReportService {
   getAllReports(params, currentPage, sortField, sortDir, statusName, minDate, maxDate, reportType) {
     let data = JSON.stringify({
       "parameter": params,
-      "currentPage" : currentPage,
+      "currentPage": currentPage,
       "sortField": sortField,
       "sortDir": sortDir,
       "statusName": statusName,
@@ -19,17 +19,14 @@ class ReportService {
       "maxDate": maxDate,
       "reportType": reportType
     });
-    
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
       url: API_URL + `all`,
       headers: authHeader(),
-      data : data
+      data: data
     };
-    
     return axios.request(config);
-    // return axios.get(API_URL + 'all', { headers: authHeader() })
   }
 
   getAllReportStructures(parameter, currentPage, sortField, sortDir, isActive, minDate, maxDate, reportTypeName) {
