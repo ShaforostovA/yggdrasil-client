@@ -50,7 +50,7 @@ const routes = [
     meta: {
       title: 'Иггдрасиль — факультеты',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/FacultetsView.vue')
   },
@@ -60,7 +60,7 @@ const routes = [
     meta: {
       title: 'Иггдрасиль — кафедры',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmi, UserRoles.Admin]
     },
     component: () => import('../views/DepartmentsView.vue')
   },
@@ -70,7 +70,7 @@ const routes = [
     meta: {
       title: 'Иггдрасиль — сотрудники',
       layout: 'main',
-      userRoles: [UserRoles.Moderator, UserRoles.SuperAdmin]
+      userRoles: [UserRoles.Moderator, UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/EmployeesView.vue')
   },
@@ -80,7 +80,7 @@ const routes = [
     meta: {
       title: 'Иггдрасиль — студенты',
       layout: 'main',
-      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.SuperAdmin]
+      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/StudentsView.vue')
   },
@@ -90,7 +90,7 @@ const routes = [
     meta: {
       title: 'Иггдрасиль — конструторы',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/ConstructorsView.vue')
   },
@@ -110,7 +110,7 @@ const routes = [
     meta: {
       title: 'Документ — выбор структуры',
       layout: 'main',
-      userRoles: [UserRoles.User, UserRoles.Moderator]
+      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.Admin]
     },
     component: () => import('../views/DocumentStructureView.vue')
   },
@@ -120,7 +120,7 @@ const routes = [
     meta: {
       title: 'Документ — создание',
       layout: 'main',
-      userRoles: [UserRoles.User, UserRoles.Moderator]
+      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/DocumentCreateView.vue')
@@ -142,7 +142,7 @@ const routes = [
     meta: {
       title: 'Сотрудник — создание',
       layout: 'main',
-      userRoles: [UserRoles.Moderator, UserRoles.SuperAdmin]
+      userRoles: [UserRoles.Moderator, UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/EmployeeCreateView.vue')
   },
@@ -152,7 +152,7 @@ const routes = [
     meta: {
       title: 'Сотрудник — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.Moderator, UserRoles.SuperAdmin]
+      userRoles: [UserRoles.Moderator, UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/EmployeeView.vue')
@@ -163,7 +163,7 @@ const routes = [
     meta: {
       title: 'Факультет — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/FacultyView.vue')
@@ -174,7 +174,7 @@ const routes = [
     meta: {
       title: 'Факультет — создание',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/FacultyCreateView.vue')
   },
@@ -184,7 +184,7 @@ const routes = [
     meta: {
       title: 'Кафедра — создание',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/DepartmentCreateView.vue')
   },
@@ -194,7 +194,7 @@ const routes = [
     meta: {
       title: 'Кафедра — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/DepartmentView.vue')
@@ -215,7 +215,7 @@ const routes = [
     meta: {
       title: 'Конструктор шаблона документов',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/ConstructorDocumentsView.vue')
@@ -226,7 +226,7 @@ const routes = [
     meta: {
       title: 'Конструктор шаблона отчетов',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/ConstructorReportsView.vue')
@@ -247,7 +247,7 @@ const routes = [
     meta: {
       title: 'Студенты — создание',
       layout: 'main',
-      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.SuperAdmin]
+      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/StudentCreateView.vue')
   },
@@ -257,7 +257,7 @@ const routes = [
     meta: {
       title: 'Студенты — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.SuperAdmin]
+      userRoles: [UserRoles.User, UserRoles.Moderator, UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/StudentView.vue')
@@ -268,7 +268,7 @@ const routes = [
     meta: {
       title: 'Разное',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     component: () => import('../views/DifferentView.vue')
   },
@@ -278,7 +278,7 @@ const routes = [
     meta: {
       title: 'Ключевое слово — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/KeyWordView.vue')
@@ -289,7 +289,7 @@ const routes = [
     meta: {
       title: 'Тип документов — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/DocumentTypeView.vue')
@@ -300,7 +300,7 @@ const routes = [
     meta: {
       title: 'Тип отчета — просмотр',
       layout: 'main',
-      userRoles: [UserRoles.SuperAdmin]
+      userRoles: [UserRoles.SuperAdmin, UserRoles.Admin]
     },
     props: true,
     component: () => import('../views/ReportTypeView.vue')

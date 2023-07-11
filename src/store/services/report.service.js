@@ -101,9 +101,8 @@ class ReportService {
     return axios.get(API_URL + `structures/${reportStructureId}/check`, { headers: authHeader() });
   }
 
-  createReportStructure(id, name, description, reportTypeId, structureData) {
+  createReportStructure(name, description, reportTypeId, structureData) {
     let data = JSON.stringify({
-      "id": id,
       "name": name,
       "description": description,
       "reportTypeId": reportTypeId,

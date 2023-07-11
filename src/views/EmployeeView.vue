@@ -56,53 +56,53 @@
             <div class="profile-right-data profile-data-group flex flex-col w-1/2 justify-between relative z-10">
               <div class="profile-data-input">
                 <label for="" class="relative required">Фамилия:</label>
-                <input v-model.trim="lastname" minlength="1" required type="text" name="" id="" class="input-text" placeholder="Фамилия" title="Введите фамилию" :disabled="!this.updateMode">
+                <input v-model.trim="lastname" minlength="1" required type="text" class="input-text" placeholder="Фамилия" title="Введите фамилию" :disabled="!this.updateMode">
               </div>
               <div class="profile-data-input">
                 <label for="" class="relative required">Имя:</label>
-                <input v-model.trim="name" minlength="1" required type="text" name="" id="" class="input-text" placeholder="Имя" title="Введите имя" :disabled="!this.updateMode">
+                <input v-model.trim="name" minlength="1" required type="text" class="input-text" placeholder="Имя" title="Введите имя" :disabled="!this.updateMode">
               </div>
               <div class="profile-data-input">
                 <label for="" class="relative required">Отчество:</label>
-                <input v-model.trim="patronymic" minlength="1" required type="text" name="" id="" class="input-text" placeholder="Отчество" title="Введите отчество" :disabled="!this.updateMode">
+                <input v-model.trim="patronymic" minlength="1" required type="text" class="input-text" placeholder="Отчество" title="Введите отчество" :disabled="!this.updateMode">
               </div>
               <div class="profile-data-input">
                 <label for="">Дата рождения:</label>
-                <input v-model.trim="birthday" type="date" name="" id="" class="input-text" placeholder="Дата рождения" title="Введите дату рождения" :disabled="!this.updateMode">
+                <input v-model.trim="birthday" type="date" class="input-text" placeholder="Дата рождения" title="Введите дату рождения" :disabled="!this.updateMode">
               </div>
             </div>
           </div>
           <div class="profile-bottom-data-section">
             <div class="profile-data-input mb-2">
               <label for="">Ученое звание:</label>
-              <input v-model.trim="academicTitle" type="text" name="" id="" class="input-text" placeholder="Ученое звание" title="Введите ученое звание" :disabled="!this.updateMode">
+              <input v-model.trim="academicTitle" type="text" class="input-text" placeholder="Ученое звание" title="Введите ученое звание" :disabled="!this.updateMode">
             </div>
             <div class="profile-data-input mb-2">
               <label for="">Ученая степень:</label>
-              <input v-model.trim="academicDegree" type="text" name="" id="" class="input-text" placeholder="Ученая степень" title="Введите ученую степень" :disabled="!this.updateMode">
+              <input v-model.trim="academicDegree" type="text" class="input-text" placeholder="Ученая степень" title="Введите ученую степень" :disabled="!this.updateMode">
             </div>
             <div class="profile-data-group flex gap-5">
               <div class="profile-data-input flex-grow">
                 <label for="">Email:</label>
-                <input v-model.trim="email" type="email" name="" id="" class="input-text" placeholder="Email" title="Введите Email" :disabled="!this.updateMode">
+                <input v-model.trim="email" type="email" class="input-text" placeholder="Email" title="Введите Email" :disabled="!this.updateMode">
               </div>
               <div class="profile-data-input flex-grow">
                 <label for="">Телефон:</label>
-                <input v-model.trim="phone" minlength="11" maxlength="11" type="tel" name="" id="" class="input-text" placeholder="Телефон" title="Введите номер телефона без (+)" :disabled="!this.updateMode">
+                <input v-model.trim="phone" minlength="11" maxlength="11" type="tel" class="input-text" placeholder="Телефон" title="Введите номер телефона без (+)" :disabled="!this.updateMode">
               </div>
             </div>
             <div class="profile-data-group flex gap-5">
               <div class="profile-data-input flex-grow">
                 <label for="">Должность:</label>
-                <input v-model.trim="jobTitle" type="text" name="" id="" class="input-text" placeholder="Должность" title="Введите должность" :disabled="!this.updateMode">
+                <input v-model.trim="jobTitle" type="text" class="input-text" placeholder="Должность" title="Введите должность" :disabled="!this.updateMode">
               </div>
               <div class="profile-data-input flex-grow">
                 <label for="">ORCID:</label>
-                <input v-model.trim="orcid" type="text" name="" id="" class="input-text" placeholder="ORCID" title="Введите ORCID" :disabled="!this.updateMode">
+                <input v-model.trim="orcid" type="text" class="input-text" placeholder="ORCID" title="Введите ORCID" :disabled="!this.updateMode">
               </div>
               <div class="profile-data-input flex-grow">
                 <label for="">Spin Code:</label>
-                <input v-model.trim="spinCode" type="text" name="" id="" class="input-text" placeholder="Spin Code" title="Введите Spin Code" :disabled="!this.updateMode">
+                <input v-model.trim="spinCode" type="text" class="input-text" placeholder="Spin Code" title="Введите Spin Code" :disabled="!this.updateMode">
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@
         <label for="" class="relative required">Новый пароль:</label>
         <div class="flex gap-3">
           <div class="w-full">
-            <input v-model.trim="this.newPassword" minlength="6" maxlength="100" required type="password" name="" id="" class="input-text" placeholder="Введите новый пароль" title="Введите новый пароль">
+            <input v-model.trim="this.newPassword" minlength="6" maxlength="100" required type="password" class="input-text" placeholder="Введите новый пароль" title="Введите новый пароль">
           </div>
           <div v-if="this.newPassword.length > 0" class="self-center">
             <div class="" v-if="this.newPassword.length > 5" title="Пароль доступен.">
@@ -226,7 +226,7 @@
     </div>
     <div class="modal-footer flex justify-evenly">
       <a href="#" class="modal-close main-btn-invers inline-block rounded-lg px-5 py-3 w-[150px] text-center text-xl">Отменить</a>
-      <button @click.prevent="this.updateEmployeePassword" :disabled="!(this.newPassword.length > 5)" class="main-btn inline-block px-5 py-3 w-[150px] text-center text-xl">Обновить</button>
+      <button @click.prevent="this.updateEmployeePassword" :disabled="!(this.newPassword.length > 5)" :data-clipboard-text="this.newPassword" class="main-btn inline-block px-5 py-3 w-[150px] text-center text-xl">Обновить</button>
     </div>
   </div>
 </template>
@@ -488,7 +488,7 @@ export default {
     async updateEmployeePassword() {
       await UserService.updateUserPassword(this.userId, this.newPassword).then(
         (response) => {
-          navigator.clipboard.writeText(this.newPassword);
+          // navigator.clipboard.writeText(this.newPassword);//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
           this.dateUpdate = response.data.dateUpdate;
           this.$message(`Пароль пользователя №${this.userId} обновелн`);
           this.$message(`Новый пароль сохранен в буфер`);

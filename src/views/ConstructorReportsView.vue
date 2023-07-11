@@ -465,7 +465,7 @@ export default {
           break;
         }
       }
-      await ReportService.createReportStructure('', this.nameStructure, this.descriptionStructure, selectTypeReport, structureReportFinal).then(
+      await ReportService.createReportStructure(this.nameStructure, this.descriptionStructure, selectTypeReport, structureReportFinal).then(
         (response) => {
           this.$message(`Создан Шаблон отчетов №${response.data.id}`);
           this.nameStructure = '';

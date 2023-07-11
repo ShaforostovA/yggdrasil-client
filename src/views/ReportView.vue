@@ -456,7 +456,7 @@ export default {
     listFaculty: [],
     listDepartment: [],
 
-    selectOtdel: 1,
+    selectOtdel: null,
     selectOtdelIndex: 0,
 
     selectDocumentStructureId: 1,
@@ -509,6 +509,76 @@ export default {
       } else {
         this.createMode = false;
         let reportStructure;
+
+        if (this.selectItemVibork !== 'Кафедра') {
+        await FacultyService.getAllActiveFaculty().then(
+          (response) => {
+            this.listFaculty = response.data;
+            if (Array.isArray(this.selectFacultyInLoadReport)) {
+              this.listOtdelis = [];
+              this.listIdOtdelis = {};
+              for (let item of this.listFaculty) {
+                if (this.selectFacultyInLoadReport.includes(''+item.id)) {
+                  this.listOtdelis.push(item);
+                  this.listIdOtdelis[item.id] = item;
+                }
+              }
+            }
+            if (this.allInfoCreate) {
+              this.listOtdelis = response.data;
+              for (let oI of response.data) {
+                this.listIdOtdelis[oI.id] = oI;
+              }
+            }
+            if (this.selectItemVibork === 'Кафедра') {
+              if (this.listFaculty.length !== 0) {
+                this.selectOtdel = this.listFaculty[0].id;
+              }
+            } else {
+              if (this.listDepartment.length !== 0) {
+                this.selectOtdel = this.listDepartment[0].id;
+              }
+            }
+            this.updateComp();
+          },
+          (error) => {
+            this.message = (error.response && error.response.data && error.response.data.message) ||
+              error.message ||
+              error.toString();
+            this.$error(messages[this.message] || 'Что-то пошло не так');
+          }
+        )
+      } else {
+        await DepartmentService.getDepartmentsActiveAll().then(
+          (response) => {
+            this.listDepartment = response.data;
+            if (Array.isArray(this.selectDepartmentInLoadReport)) {
+              this.listOtdelis = [];
+              this.listIdOtdelis = {};
+              for (let item of this.listDepartment) {
+                if (this.selectDepartmentInLoadReport.includes(''+item.id)) {
+                  this.listOtdelis.push(item);
+                  this.listIdOtdelis[item.id] = item;
+                }
+              }
+            }
+            if (this.allInfoCreate) {
+              this.listOtdelis = response.data;
+              for (let oI of response.data) {
+                this.listIdOtdelis[oI.id] = oI;
+              }
+            }
+            this.updateComp();
+          },
+          (error) => {
+            this.message = (error.response && error.response.data && error.response.data.message) ||
+              error.message ||
+              error.toString();
+            this.$error(messages[this.message] || 'Что-то пошло не так');
+          }
+        )
+      }
+
         await ReportService.getReport(this.$route.query.reportId).then(
           (response) => {
             let reportData = response.data.reportData;
@@ -524,6 +594,16 @@ export default {
             this.reportName = response.data.reportStructure.name;
             this.reportDesctiption = response.data.reportStructure.description;
             this.selectItemVibork = reportData.viborka;
+
+            if (!response.data.allInfo && reportData.data.viborkaList.length < 2) {
+              this.selectOtdel = reportData.data.viborkaList[0];
+            } else {
+              if (this.selectItemVibork === 'Кафедра') {
+                this.selectOtdel = this.listDepartment[0].id;
+              } else {
+                this.selectOtdel = this.listFaculty[0].id;
+              }
+            }
             
             this.owner = response.data.user;
 
@@ -1219,7 +1299,7 @@ export default {
       this.listDocumentData = [];
       this.listFaculty = [];
       this.listDepartment = [];
-      this.selectOtdel = 1;
+      this.selectOtdel = null;
       this.selectOtdelIndex = 0;
       this.selectDocumentStructureId = 1;
       this.selectDocumentStructureIdIndex = 0;
